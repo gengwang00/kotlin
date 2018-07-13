@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.common.myapplication.ViewModel.LoginViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <EditText
+        android:id="@+id/edt_email"
+        android:hint="email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        app:addTextChangedListener="@{viewModel.emailtextWatcher}"
+        />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:hint="passowrd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:addTextChangedListener="@{viewModel.passwordtextWatcher}"
+        />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:text="LOGIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onLoginClicked}"/>
+
+
+    </LinearLayout>
+
+</layout>
