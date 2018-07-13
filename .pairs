@@ -1,0 +1,10 @@
+# .pairs - configuration for 'git pair'
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  gw: Geng Wang; geng_wang00  
+  mr: Mahesh Ram; mramach9
+email:
+  prefix: pair
+  domain: yahoo.com
+  no_solo_prefix: true
+com.fordlincoln.global: false
