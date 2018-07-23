@@ -22,7 +22,7 @@
             android:hint="email"
             android:inputType="textEmailAddress"
 
-            app:addTextChangedListener="@{viewModel.emailtextWatcher}"
+            app:addTextChangedListener="@{viewModel.emailTextWatcher}"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -34,13 +34,23 @@
             app:addTextChangedListener="@{viewModel.passwordtextWatcher}"
             app:layout_constraintTop_toBottomOf="@+id/edt_email" />
 
+        <TextView
+            android:id="@+id/fld1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/edt_password"
+            android:text="@{viewModel.myField}"
+            />
+
+        />
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{viewModel::onLoginClicked}"
             android:text="LOGIN"
-            app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+            app:layout_constraintTop_toBottomOf="@+id/fld1" />
 
     </android.support.constraint.ConstraintLayout>
 
