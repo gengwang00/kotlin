@@ -1,6 +1,7 @@
 package com.example.common.myapplication.ViewModel
 
 import android.arch.lifecycle.ViewModel
+import android.databinding.ObservableField
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -14,7 +15,9 @@ class LoginViewModel(private val listener: LoginResultCallBacks) : ViewModel() {
         this.user = User("", "")
     }
 
-    val emailtextWatcher: TextWatcher
+    val myField : ObservableField<String> = ObservableField("ccc")
+
+    val emailTextWatcher: TextWatcher
         get() = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 user.setEmail(s.toString())
@@ -43,8 +46,10 @@ class LoginViewModel(private val listener: LoginResultCallBacks) : ViewModel() {
     }
 
     fun onLoginClicked(v: View){
-        if(user.isDataValid)
+        if(user.isValid()) {
             listener.onSuccess("Login Success")
+            myField.set("Login Success")
+        }
         else
             listener.onError("Login Failed")
     }
